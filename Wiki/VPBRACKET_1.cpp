@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+    #include <bits/stdc++.h>
     #define maxn 100005
     using namespace std;
     //Initialization struct
