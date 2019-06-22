@@ -44,8 +44,7 @@
                     st[node].len = 0;
                 //Node này không còn được phủ nên chiều dài bằng 0
             }
-            //Nếu là khoảng đóng nhưng vẫn còn HCN phủ lên đoạn [l,r]
-            //-> không làm gì cả, vì đoạn [l,r] vẫn được phủ
+            //Nếu là khoảng đóng nhưng vẫn còn HCN phủ lên đoạn [l,r] -> không làm gì cả, vì đoạn [l,r] vẫn được phủ
             return;
         }
         update(node*2,l,(l+r)/2,u,v,type);
@@ -53,8 +52,7 @@
         if (st[node].cnt == 0 && l < r)
         //Nếu không có HCN nào phủ lên đoạn [l,r] và đây không phải lá
             st[node].len = st[node*2].len + st[node*2+1].len;
-        //Chiều dài được phủ lên đoạn [l,r] bằng tổng chiều dài phủ lên đoạn
-        //[l,(l+r)/2] và [(l+r)/2+1,r]
+        //Chiều dài được phủ lên đoạn [l,r] bằng tổng chiều dài phủ lên đoạn [l,(l+r)/2] và [(l+r)/2+1,r]
     }
     main()
     {
@@ -63,18 +61,15 @@
         {
             int x1,x2,y1,y2;
             scanf("%lld%lld%lld%lld",&x1,&y1,&x2,&y2);
-            a[2*i] = {x1,y1+1,y2,1};
-            //Các hàng [y1+1,y2] bắt đầu được bao phủ bởi HCN này
-            a[2*i+1] = {x2,y1+1,y2,-1};
-            //Các hàng [y1+1,y2] không được bao phủ bởi HCN này nữa
+            a[2*i] = {x1,y1+1,y2,1};      //Các hàng [y1+1,y2] bắt đầu được bao phủ bởi HCN này
+            a[2*i+1] = {x2,y1+1,y2,-1};   //Các hàng [y1+1,y2] không được bao phủ bởi HCN này nữa
             k = max(k,y2);
         }
         sort(a+2,a+2*n+2,cmp);
         for(int i=2;i<=2*n+1;i++)
         {
             res += st[1].len * (a[i].x - a[i-1].x);
-            //Phần được bao phủ giới hạn bởi hai đường thẳng đứng tại hoành độ
-            //a[i].x và a[i-1].x
+            //Phần được bao phủ giới hạn bởi hai đường thẳng đứng tại hoành độ a[i].x và a[i-1].x
             update(1,1,k,a[i].y1,a[i].y2,a[i].type);
             //Update đoạn [a[i].y1,a[i].y2] bắt đầu / kết thúc bao phủ
         }
