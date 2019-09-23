@@ -90,8 +90,9 @@ int main()
 {
     //fi(".inp");
     //fo(".inp");
-    cin >> nx >> ny;
-    while( cin >> u >> v ){
+    cin >> nx >> ny >> m;
+    for(int i = 1; i <= m; i++){
+        cin >> u >> v;
         add_edge(u, v + nx, 1);
     }
     s = 0;
