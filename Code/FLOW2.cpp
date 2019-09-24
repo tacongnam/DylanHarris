@@ -21,8 +21,8 @@ int n, m, s, t, level[maxn], start[maxn];
 pair<int, int> ans[maxn];
 
 void add_edge(int u, int v, int w){
-    Edge a = {v, 0, w, adj[v].size()};
-    Edge b = {u, 0, 0, adj[u].size()};
+    Edge a = {v, 0, w, adj[v].size(), 0};
+    Edge b = {u, 0, 0, adj[u].size(), 0};
     adj[u].push_back(a);
     adj[v].push_back(b);
 }
@@ -59,18 +59,12 @@ int dfs(int u, int flow, int pa){
                 adj[e.v][e.rev].flow -= temp_flow;
                 adj[u][start[u]].change();
                 adj[e.v][e.rev].change();
-                if(adj[u][start[u]].match == true){
-                    if(u > 0 && u <= n)
-                        ans[u].first = e.v;
-                    else if(n + m + 1 <= u && u <= 2 * n + m)
-                        ans[u].second = pa;
-                }
-                else{
-                    if(u > 0 && u <= n)
-                        ans[u].first = n;
-                    else if(n + m + 1 <= u && u <= 2 * n + m)
-                        ans[u].second = n;
-                }
+
+                /// FIX BUG HERE
+
+                
+
+                ///
                 return temp_flow;
             }
         }
@@ -97,8 +91,9 @@ void input(string s, int type, int val){
     //start: 0
     //Chuyen SP: 1 -> n
     //Problem: n + 1 -> n + m
-    //Chuyen TH: n + m + 1 -> 2 * n + m
-    //end: 2 * n + m + 1
+    //Problem: n + m + 1 -> n + 2 * m
+    //Chuyen TH: n + 2 * m + 1 -> 2 * n + 2 * m
+    //end: 2 * n + 2 * m + 1
     int num = 0;
     s = s + ' ';
     for(int i = 0; i < s.size(); i++){
@@ -107,13 +102,13 @@ void input(string s, int type, int val){
         else if(type == 1) //chuyen SP to Problem
             add_edge(val, num + n, 1), num = 0;
         else if(type == 2) //Problem to Chuyen TH
-            add_edge(num + n, val, 1), num = 0;
+            add_edge(num + m + n, val, 1), num = 0;
     }
     return;
 }
 
-int output(){
-    /* Answer *//*
+void check_output(){
+    /*                                          //Edge
     for(int i = s; i <= t; i++){
         cout << "Node " << i << ": ";
         for(int j = 0; j < adj[i].size(); j++)
@@ -121,22 +116,12 @@ int output(){
         cout << endl;
     }
     */
-    int di = dinic(), answ[] = {4, 6, 1, 4, 5, 6, 5, 4, 1}, cnt = 0;
+    int di = dinic(), cnt = 0;
     int fail = 0;
     cout << "Answer: " << di << endl;
-    if(di != answ[cnt])
-        fail = 1;
-    for(int i = 1; i <= n; i++){
-        cout << "SP " << i << " " << ans[i].first - n << endl;
-        if(ans[i].first - n != answ[++cnt])
-            fail = i + 1;
+    for(int i = 1; i <= m; i++){
+        cout << ans[i].first << " " << ans[i].second - n - 2 * m << endl;
     }
-    for(int i = n + m + 1; i <= 2 * n + m; i++){
-        cout << "TH " << i - n - m << " " << ans[i].second - n << endl;
-        if(ans[i].second - n != answ[++cnt])
-            fail = i - m + 1;
-    }
-    return fail;
 }
 
 string st;
@@ -146,22 +131,21 @@ int main()
     //fo(".inp");
     cin >> n >> m;
     cin.ignore();
-    s = 0, t = 2 * n + m + 1;
+    s = 0, t = 2 * n + 2 * m + 1;
     for(int i = 1; i <= n; i++){
 		//fflush(stdin);
         getline(cin, st);
         input(st, 1, i);
         add_edge(s, i, 1);
     }
-    for(int i = n + m + 1; i <= n * 2 + m; i++){
+    for(int i = n + 2 * m + 1; i <= n * 2 + 2 * m; i++){
 		//fflush(stdin);
         getline(cin, st);
         input(st, 2, i);
         add_edge(i, t, 1);
     }
-    int f = output();
-    if(f == 0)
-        cout << "\n Ok, correct answer \n";
-    else
-        cout << "\n Wrong answer at line " << f << endl;
+    for(int i = n + m + 1; i <= n + 2 * m; i++){
+        add_edge(i - m, i, 1);
+    }
+    check_output();
 }
