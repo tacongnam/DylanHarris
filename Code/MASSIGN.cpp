@@ -25,6 +25,12 @@ void add_edge(int u, int v, int w){
     adj[v].push_back(b);
 }
 
+void add_edge0(int u, int v, int w){
+    Edge a = {v, 0, w, 0};
+    adj[u].push_back(a);
+    adj[v][0].flow = 0;
+}
+
 bool bfs(){
     memset(level, -1, sizeof(level));
     deque <int> dq;
@@ -60,9 +66,9 @@ int dfs(int u, int flow){
                 adj[u][start[u]].change();
                 adj[e.v][e.rev].change();
                 if(adj[e.v][e.rev].match == true)
-                    ans[u] = e.v;
+                    ans[e.v - nx] = u;
                 else
-                    ans[u] = 0;
+                    ans[e.v - nx] = 0;
                 /// End of matching
                 return temp_flow;
             }
@@ -81,30 +87,19 @@ int dinic(){
             flow = dfs(s, INT_MAX);
         }
     }
-    for(int i = 1; i <= nx; i++)
-        if(r[max(ans[i] - nx, 0)] == 0)
-            r[max(ans[i] - nx, 0)] = i;
     return total;
-}
-
-bool check(int u, int v){
-    for(int i = 0; i < adj[u].size(); i++)
-        if(adj[u][i].v == v + nx)
-            return false;
-    return true;
 }
 
 int main()
 {
     fi("MASSIGN.inp");
-    //fo("MASSIGN.out");
-    cin >> nx >> ny;
+    fo("MASSIGN.out");
+    scanf("%d%d", &nx, &ny);
     int num = ny;
     for(int i = 1; i <= nx; i++)
         add_edge(0, i, 1);
     while( cin >> u >> v ){
-        if(check(u, v) == true)
-            add_edge(u, v + nx, 1);
+        add_edge(u, v + nx, 1);
     }
     s = 0;
     t = nx + ny + 1;
@@ -113,16 +108,11 @@ int main()
     while(num != 0){
         adj[s].clear();
         for(int i = 1; i <= nx; i++)
-            add_edge(s, i, 1);
-        for(int i = 1; i <= nx; i++)
-            adj[i][0].flow = 0;
+            add_edge0(s, i, 1);
         num -= dinic();
         res++;
     }
-    cout << res << endl;
+    printf("%d\n", res);
     for(int i = 1; i <= ny; i++)
-        cout << r[i] << " ";
-    //for(int i = 1; i <= cnt; i++){
-    //    cout << ans[i].first << " " << ans[i].second << endl;
-    //}
+        printf("%d ", ans[i]);
 }
