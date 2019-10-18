@@ -7,13 +7,13 @@ const long long maxn = 2005;
 
 long long hx[6][maxn], hn[6][maxn], po[maxn], n, maxlen;
 string s[6];
-vector <long long> d[6][maxn];
+vector <long long> d[6][maxn / 2];
 
 long long gethash(long long l, long long r, long long no, long long type){
     if(type == 1) //Xuoi
-        return (hx[no][r] - hx[no][l - 1] * po[r - l] % mod + 200 * mod) % mod;
+        return (hx[no][r] - hx[no][l - 1] * po[r - l + 1] % mod + 200 * mod) % mod;
     else
-        return (hn[no][l] - hn[no][r + 1] * po[r - l] % mod + 200 * mod) % mod;
+        return (hn[no][l] - hn[no][r + 1] * po[r - l + 1] % mod + 200 * mod) % mod;
 }
 
 void add(long long k){
@@ -45,25 +45,28 @@ void solve(){
 }
 
 void make_hash(long long no){
-    hx[no][-1] = 0;
-    for(long long i = 0; i < s[no].size(); i++)
-        hx[no][i] = ((hx[no][i - 1] * base) % mod + (s[no][i] - 'a' + 1)) % mod;
+    for(long long i = 0; i < s[no].size(); i++){
+        if(i == 0)
+            hx[no][i] = (s[no][i] - 'a' + 1) % mod;
+        else
+            hx[no][i] = ((hx[no][i - 1] * base) % mod + (s[no][i] - 'a' + 1)) % mod;
+    }
     hn[no][s[no].size()] = 0;
     for(long long i = s[no].size() - 1; i >= 0; i--)
         hn[no][i] = ((hn[no][i + 1] * base) % mod + (s[no][i] - 'a' + 1)) % mod;
 }
 
 void make_po(){
-    po[-1] = 1;
-    for(long long i = 0; i <= maxlen + 2; i++)
+    po[0] = 1;
+    for(long long i = 1; i <= maxlen + 2; i++)
         po[i] = po[i - 1] * base % mod;
 }
 
 main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0), cout.tie(0);
-    //freopen("STR5.inp", "r", stdin);
-    //freopen("STR5.out", "w", stdout);
+    freopen("STR5.inp", "r", stdin);
+    freopen("STR5.out", "w", stdout);
     cin >> n;
     for(long long i = 1; i <= n; i++){
         cin >> s[i];
