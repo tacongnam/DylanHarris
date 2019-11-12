@@ -55,7 +55,7 @@ template <typename D, typename R> inline void Max(D &a, R b) {
 }
 
 const int mod = 1e9 + 7;
-const int maxn = 1005;
+const int maxn = 2005;
 int n, st[maxn], F[maxn][maxn], k, m, pos;
 long long res, dp[maxn][maxn], a[maxn][maxn];
 vector <int> ans;
