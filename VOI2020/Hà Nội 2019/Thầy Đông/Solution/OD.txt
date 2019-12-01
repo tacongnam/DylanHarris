@@ -1,0 +1,16 @@
+﻿Sub1: Dùng BFS / DFS để kiểm tra thông tin
+
+Sub4 - 5: 
+- Không lưu lại tất cả các thông tin, chỉ lưu thông tin cơ sở (mỗi vị trí đã cho, chỉ lưu lại đoạn ngắn nhất mà đã biết thông tin)
+
+-> tách các đoạn ra thành các đoạn cơ sở để kiểm tra thông tin
+
+
+đpt O(m^2)
+
+Sub6:
+
+- Kiểm tra từ 1 đến các điểm là chẵn hay lẻ
+- Khi đã đồng bộ các đoạn, sử dụng dsu để nối các đoạn với nhau
+
+đpt O(mlogm)

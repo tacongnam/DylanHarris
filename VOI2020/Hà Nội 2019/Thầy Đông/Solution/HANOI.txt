@@ -1,0 +1,4 @@
+﻿- Chuyển n đĩa từ c1 -> c3 thông qua c2
+	(n - 1) c1 -> c2	2^(n - 1) - 1
+	       1  c1 -> c3	1
+                     n - 1  c2 -> c3	2^(n - 1) - 1

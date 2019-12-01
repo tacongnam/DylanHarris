@@ -1,0 +1,11 @@
+﻿F(p1, p2, t): (bool, bool, int: 0 -> 2^n - 1)
+
+1 người: xuất phát từ trái / phải (0/1) sang trái / phải (0/1) qua các tập t
+
+g(i, t) (đứng đỉnh i, tập t đã qua)	= g(j, t ^ 2^j ) + a[j][i];		n . 2^n . n 
+
+W[k][p][q]	 (int: 1 -> m, bool, bool):  Tổng thời gian xét hết chương trình thứ k, sau ctrình k, người 1 đứng ở p, người 2 đang ở q
+
+= W[k - 1][p'][q'] + max( F (p', p, t) / v1 + F (q', q, t') / v2);
+
+Test hiểm: Ko bật, tắt nhưng vẫn phải di chuyển

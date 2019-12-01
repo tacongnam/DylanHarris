@@ -1,0 +1,27 @@
+﻿Sử dụng mô hình đệ quy để giải các bài toán thứ tự -> cấu hình và ngược lại
+
+Sử dụng tư tưởng DP Digit
+
+Quản lý thông tin:
+- số lượng ngoặc mở / đóng, đã là dãy ngoặc đúng hay chưa
+
+
+int calc (i, c, ok) {
+      if (i > n)
+            return (ok == false || c != (n - c));		/// Bài WBRACK2 sửa điều kiện c == n
+      if(F[i][c][ok] > -1)
+            return F[i][c][ok];
+      return calc (i + 1, c + 1, ok) + calc(i + 1, c, ok | (i - c > c));
+}
+
+void truyvet(i, c, ok) {
+      if(i > n)
+            return ;
+      if(k <= calc (i + 1, c + 1, ok))
+            x[i] = '(',  truyvet(i + 1, c + 1, ok);
+      else {
+            k -= truyvet(i + 1, c + 1, ok);
+            x[i] = ')';
+            truyvet(i + 1, c, ok | (i - c > c));
+      }
+}

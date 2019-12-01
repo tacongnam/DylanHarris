@@ -1,0 +1,15 @@
+﻿Bài toán phụ:
+
+- Có n công việc, thời gian thực hiện là t, công việc thứ i có thời điểm sẵn sàng thứ i là ri
+
+-> thứ tự thực hiện tối ưu là r1 <= r2 <= ... <= rn
+
+=> answer = max( ri + (k - i) t );
+
+Chặt nhị phân D: Kiểm tra dùng cặp ghép
+
+
+( n gói )			( n * m dự án )
+
+(gói thứ i ) --------------------------- (dự án j)	gói i ghép vào dự án j, ở giai đoạn h nếu như i được phép giải ngân ở dự án j
+							          ri + P/Si x h <= D

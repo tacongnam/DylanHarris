@@ -1,0 +1,3 @@
+﻿Cách 1: ST
+
+Cách 2: Dùng DSU làm từ cuối lên đầu, coi mỗi số là 1 đỉnh của đồ thị

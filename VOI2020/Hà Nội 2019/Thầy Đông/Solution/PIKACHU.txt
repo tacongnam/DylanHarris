@@ -1,0 +1,5 @@
+﻿Thử k từ 1
+
+Kiểu tra (u, v), (x, y) có bao nhiêu đường?
+
+Thay đổi đồ thị: (x, y, h) ô (x, y), hướng là h -> đồ thị trọng số 01 (sử dụng deque)

@@ -1,0 +1,9 @@
+﻿Tính chất: Nếu hai đỉnh cùng kề với u, nếu có đường đi trực tiếp -> cố định 3 màu,
+
+
+Chọn 1 cạnh bất kỳ, gán 2 màu bất kì, loang trên các cạnh từ các tam giác, suy ra màu của các đỉnh còn lại
+
+
+BFS: Cho vào queue, lấy (u, v) -> z, cho vào trong queue (u, z), (v, z)
+
+đpt: O(nm)

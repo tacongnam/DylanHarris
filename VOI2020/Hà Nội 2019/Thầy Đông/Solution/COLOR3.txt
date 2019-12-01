@@ -1,0 +1,23 @@
+﻿- Mỗi đỉnh chỉ tô 1 trong 3 màu:R, G, B
+Khi tô 1 đỉnh, suy ra các khả năng của các ô cạnh nó: Khác màu cũ của j (1), khác màu mới của i (2). Nếu (1) khác (2) chỉ có 1 cách tô
+Nếu (1) == (2): Để nguyên, sau khi tô hết các TH có 1 khả năng thì tô sau`
+
+Thuật toán: Xét các đỉnh
+
+1	For(i: 1 -> n)
+2	{
+3	      if(c[i] == 0)
+4	      {
+5	            For(cc: 1 -> 3)
+6	            {
+7	                    if(cc != o[i])
+8                 	{
+9                       	      tô đỉnh i bằng màu cc;
+10	                         if( tô được)
+11                                              break;
+12                                  }
+13                                  if( cả hai đều không tô được )
+14                                        cout << "impossible";
+15                          }
+16                    }
+17             }

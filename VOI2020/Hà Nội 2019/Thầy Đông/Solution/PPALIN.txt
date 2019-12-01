@@ -1,0 +1,3 @@
+﻿Dạng: abababab....
+
+Sử dụng thuật toán 2 con trỏ để giải quyết bài toán

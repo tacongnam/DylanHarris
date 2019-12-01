@@ -1,0 +1,29 @@
+﻿Subtask1: W[i][i1][i2][i3][i4][i5] = true / false: Đến lượt người P đi, trạng thái các hàng là i1, i2, i3, ..., i5 thì thắng hay thua
+
+O(2.10^5.5.10)
+
+Subtask2: BBBB...BRR*... = 	B 
+			B 
+			B
+			B
+			B 
+			...
+			BR*
+	RRRR...RB*... = 	R
+			R
+			...
+			RB*
+
+
+Biểu diễn các xâu dưới dạng nhị phân, B là 1, R là -1. Cộng hết với nhau, điều kiện cần: > 0 B thắng
+
+
+BRB	100 - 10 + 1 			
+RB	-100 + 10
+
+1 > 0 -> B thắng
+
+Giải thích: Mỗi lượt đi tổng sẽ bị giảm đi 1 số dương -> Nếu âm -> tất cả đằng sau âm
+
+ĐK đủ: Mỗi lượt đi chọn vị trí sao cho tổng giảm ít nhất
+

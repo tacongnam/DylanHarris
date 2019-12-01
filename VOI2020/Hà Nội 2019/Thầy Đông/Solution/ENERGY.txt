@@ -1,0 +1,13 @@
+﻿Hai đỉnh có khoảng cách là 1 -> có điểm phát ở giữa
+
+- Một điểm phát chỉ phát tối đa cho 2 đỉnh
+0 Nếu phát với giá trị E -> phát được với giá trị E - 1
+
+
+=> Kiểm tra có tồn tại hay không - cặp ghép
+
+(x + y + z lẻ)	(x + y + z chẵn)			Do x + y + z lẻ và chẵn mới có khả năng k/c là 1
+						p[i] + p[j] >= E && dist(i, j) == 1 -> có cạnh
+
+						Nếu k không được ghép: if(p[k] >= E) tiếp tục
+						else if( có đường nối từ k -> h, h trong cặp ghép, p[k] + p[h] >= E) nối k, h: tiếp tục

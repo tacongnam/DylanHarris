@@ -1,0 +1,9 @@
+﻿- Các số khác nhau
+- Các số cùng hàng đổi chỗ vẫn cùng hàng, các số cùng cột đổi chỗ vẫn cùng cột
+=> Số lớn nhất phải đưa lên đầu, hàng đầu tiên giảm dần. Sau đó sắp xếp lại m - 1 hàng theo thứ tự giảm dần
+
+
+Biến thể 1: Mỗi hàng là hoán vị của (1, n)
+- Xét hàng được chuyển về đầu (m khả năng)
+
+Biến thể 2: Không giới hạn
