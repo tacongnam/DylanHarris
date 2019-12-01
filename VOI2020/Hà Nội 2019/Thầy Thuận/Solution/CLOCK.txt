@@ -1,0 +1,11 @@
+﻿dp[i, j] là số lần bấm ít nhất để các đồng hồ trước i về 12 và đồng hồ i về vị trí j
+
+
+dp[i, j] = min (dp[i - 1, k] + 12 - k)	(j: 1 -> 12)
+
+vị trí của i là j = a[i] - (12 - i)
+
+res = min(dp[n, j] + 12 - j)
+
+
+O(n.12 ^ n)

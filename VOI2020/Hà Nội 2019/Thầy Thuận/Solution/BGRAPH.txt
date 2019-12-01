@@ -1,0 +1,11 @@
+﻿BGRAPH
+
+- Phân tập đỉnh thành 2 phần: Đánh số chẵn và đánh số lẻ
+=> Đồ thị 2 phía (X, Y)	(xây dựng O(n + m), BFS / DFS)
+
+Gọi a là số đỉnh tập X, b là số đỉnh tập Y
++ Nếu đánh số đỉnh lẻ tập X -> có 2 ^ a cách
++ ............................ chẵn .. Y -> có 2 ^ b cách
+
+-> Trên mỗi tplt có 2 ^ a + 2 ^ b cách
+-> ans = Tích kết quả các TPLT

@@ -1,0 +1,38 @@
+﻿Bài toán: '(' đi lên, ')' đi xuống => Dãy zigzag ko được vượt xuống trục x
+      /\
+    /   \                   / \	          /\
+   /     \       / \      /    \             /    \ 
+ /         \   /    \   /       \    / \   /       \ 
+/--------\/-----\/--------\/---\/-------\---------> x 		(Dãy ngoặc đúng)
+
+Subtask nhỏ: Sinh ra mọi dãy dấu ngoặc
+
+- Công thức truy hồi
+
+Cn là số lượng dãy ngoặc đúng độ dài n
+
+Với mỗi vị trí i, mà dãy chạm trục x = 0 thì dãy tạo thành 2 nửa có cùng tính chất Ci và Cn-i
+
+Cn = E (i: 2 -> n - 1) Ci . Cn - i   O(n ^ 2)
+
+- Công thức thực hiện
+
+Một dãy đúng có m dấu '(', m dấu ')', đồng thời dãy không bao giờ vượt xuống trục Ox
+Gọi Dm là tổng số dãy có m dấu '(' và m dấu ')' (không có đk thứ 2)
+        Fm là tổng số dãy sai  có m dấu '(' và m dấu ')', có nghĩa là tồn tại vị trí i mà dãy vượt xuống dưới trục Ox
+
+-> Cn = Dm - Fm
+               m
+Dm = C 2m
+
+Fm:
+- Lật ngược đoạn tư i -> n
+=> Dãy két thúc tại vị trí -2
+- Mỗi dãy ngoặc sai tương ứng với dãy ngoặc được kết thúc tại vị trí -2 => là dãy có m - 1 dấu '(', m + 1 dấu ')'
+
+               m - 1
+Fm = C  2m
+
+                  m           m - 1	(2m)!	        m		           1	      m
+-> Cn = C 2m  -  C 2m       =        ---------- ( 1 -  --------- ) 		=    -------- . C  2m    (số Catalan thứ m)
+			m!m!               m + 1		       m + 1

@@ -1,0 +1,6 @@
+﻿TRIPLE
+
+sort lại a
+cố định a[i], đưa bài toán về với dãy a[i + 1] -> a[n], đếm số lượng a[j] + a[k] = m - a[i]
+
+sử dụng 2 con trỏ

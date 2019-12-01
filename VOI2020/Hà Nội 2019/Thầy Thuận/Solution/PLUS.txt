@@ -1,0 +1,15 @@
+﻿- Bước 1
+	d = GCD(A, B)
+	A = A / d, B = B / d
+	(A, B) nguyên tố cùng nhau
+	-> 1 số lẻ
+- Bước 2
+	Nếu a, b cùng lẻ: Gọi C = min(A, B)
+		A += C, B += C
+	-> A, B chẵn -> quay lại bước 1
+- Bước 3:
+	Nếu a / b lẻ: Nhân đôi số lẻ 
+	-> Quay lại bước 1
+
+Sau 3 bước trên, |A- B| giảm ít nhất 1 nửa
+

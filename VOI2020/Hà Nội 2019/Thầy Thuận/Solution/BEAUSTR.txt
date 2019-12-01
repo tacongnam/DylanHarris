@@ -1,0 +1,14 @@
+﻿Nhận xét: Xâu đẹp có dạng: 00....0100..001..00...0....
+		          k cs       k cs       k cs
+
+Bài toán: Cố định k, làm thế nào để chuyển thành xâu dẹp dài nhất
+
+Greedy: Từ trái sang phải tại vị trí i, ta cần lấy k số 0 tiếp theo, rồi xoá mọi số 0 đến số 1 tiếp theo, giữ lại 1 số 1 và cứ như vậy: O(n)
+
+Nhận xét: Tại vị trí thứ i,  cần lấy k vị trí cách k số 0 tiếp theo trong O(1): O(n / k)
+
+-> đpt: O(n. (1 + 1/2 + 1/3 + ... + 1/n)) = O(n log n)
+
+Gọi S[i] là số số 0 từ i đến n
+P[S[i]] = i => P[s[i] - k] = 0
+=> Từ i đến j + 1 có k chữ số 0 -> O(1)

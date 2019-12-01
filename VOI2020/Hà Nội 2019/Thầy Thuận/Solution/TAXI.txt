@@ -1,0 +1,10 @@
+﻿Cùng dạng bài toán người du lịch
+
+C1: Duyệt (2n)! + Nhánh cận (lim -> AC)
+
+C2: QHD trạng thái (dpt: (2n)^2 . 2 ^ (2n))
+
+TSP (i, s) : Hành trình MIN mà người du lịch đã đi qua mọi thành phố trong tập S và đang tới thành phố i
+
+TSP (i, s) = min ( TSP (j, s - {j} ) + C [i, j])  với mọi j thuộc S
+
