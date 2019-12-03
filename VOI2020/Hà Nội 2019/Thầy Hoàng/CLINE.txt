@@ -1,0 +1,12 @@
+﻿Đếm số đoạn thẳng đi qua điểm nguyên ngoài 2 đầu
+
+có (m - a + 1) . (n - b + 1) 
+
+b thuộc [L, R]
+__gcd(a, b) > 1
+
+KQ = 0;
+
+for( với mọi a ) {
+      KQ += E(b) ((m - a + 1).(n - b + 1));
+}
