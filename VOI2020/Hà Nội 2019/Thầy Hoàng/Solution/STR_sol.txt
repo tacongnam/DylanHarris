@@ -1,0 +1,27 @@
+﻿----- STR ------ (mở rộng cửa sổ notepad)
+
+Lấy 2 xâu bất kỳ S[i] và S[j]
+
+
+S[i] = [///////////// |                               ]
+S[j] =                  [                               |                        ]
+
+Gọi a[i][j] = Độ dài tiền tố ngắn nhất của S[i] (khác (/)) mà nếu bỏ đi thì S[i] = tiền tố S[j]
+
+Tìm s[i] -> ... -> ... -> ... -> s[j] 	(đi qua k xâu)
+
+F[i][k] là độ dài xâu thoả mãn - có phần đầu = S[i] có k vị trí xuất hiện của tập {S[1] ... S[n]}
+
+F[i][k] = min( F[j][k - 1] + a[i][j] )
+
+Chỉ ra xâu: 2 cách:
+
+Cách 1: 
+void FindString() {
+          Xét i, k nhỏ nhất:
+	Nếu bằng nhau, xét i có thứ tự tự điển nhỏ nhất
+	Nếu khác nhau: k--;
+}
+
+Cách 2:
+QHD: F[i][k] = string

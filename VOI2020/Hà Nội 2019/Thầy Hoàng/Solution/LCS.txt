@@ -1,0 +1,6 @@
+﻿F[i, k] chỉ số j nhỏ nhất thoả mãn LCS(a1 ... ai, b1 ... bj) = k
+
+F[i, k] :	LCS không lấy a[i]: F[i, k] = F[i - 1, k]
+	LCS có lấy a[i]: F[i, k] = chỉ số j đầu tiên đứng sau F[i - 1, k - 1] mà bj = ai
+
+Optimize: Nén mảng a, b
