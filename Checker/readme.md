@@ -1,4 +1,4 @@
-Checker + generate tests auto
+Checker + generate tests auto 19.12.1
 
 ## Hướng dẫn sử dụng ##
 
@@ -17,7 +17,7 @@ Giải nén file CHECKER + GENTEST.rar, được hai thư mục CHECKER (checker
             10 (số lượng test kiểm tra) (4)
             0.1 (giới hạn thời gian chạy) (5)
 
-<br><br>Chú ý, (1), (2), (3) không ghi phần đuôi .exe
+<br><br>Chú ý, (1), (2), (3) không ghi phần đuôi .exe.
 
 4. Chạy file get_logs.exe, trong câu hỏi 
 
@@ -38,7 +38,14 @@ nhập Y để chương trình tạo bộ test (test được tạo sẽ đượ
             Test.../(2).inp
             Test.../(2).out 
 
-ngay trong thư mục bài làm
+ngay trong thư mục bài làm.
+
+6. Khi chạy test có các trạng thái như sau:
+
+            Correct: Trùng khớp với kết quả trâu trong thời gian cho phép.
+            Wrong answer: Không trùng khớp với kết quả trâu, console sẽ hiển thị kí tự sai của bạn. Checker sẽ ngừng ngay lập tức.
+            Time limit exceed: Quá thời gian cho phép (không xác định khớp / không khớp với kết quả trâu).
+            Runtime error: Chương trình đang chấm trả về kết quả khác 0.
 
 #### Sinh test: ####
 
